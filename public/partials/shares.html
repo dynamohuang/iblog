@@ -1,0 +1,13 @@
+<section class="links" ng-controller="shareCtrl as share">
+		   
+		    <ul ng-repeat="link in share.items">
+				
+				<a target="_blank" href="{{link.url}}">
+				<li>{{link.name}}
+					<div class="sub">{{link.url}}<div>
+				</li>
+				</a>
+				
+			</ul>
+	
+		</section>

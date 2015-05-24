@@ -1,0 +1,56 @@
+<section class="posts arc" ng-controller="postCtrl as post">
+		   	 <h1 class="title">
+				{{post.data.title}}
+			</h1>
+			<div class="post_info">
+				{{post.data.date}}
+				{{post.datacategory.name}}
+				{{post.data.views}}次阅读,
+				{{post.data.stars}}个赞
+			</div>
+			<article>
+			{{post.data.contents}}
+			</article>
+			<section class="star_zone">
+				<button class="star_btn"><i class="star-icon fa fa-heart-o fa-heart"></i>
+				<span class="star_num">{{post.data.stars}}</span>个喜欢</button>
+			</section>
+			<div class="comment">
+				<!-- 多说评论框 start -->
+					<div class="ds-thread" data-thread-key="{{post.data._id}}" data-title="{{post.data.title}}" data-url="http://www.dobest.me/post/{{post.data.url}}/"></div>
+				<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"dobest123"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+					</script>
+<!-- 多说公共JS代码 end -->
+			</div>
+			<script src="/libs/code-prettify/prettify.js"></script>
+<script>
+(function(){
+    $('pre').addClass('prettyprint');
+    prettyPrint();
+})();
+</script>
+
+<script>
+// $(".star_btn").attr
+$(".star_btn").click(function() {
+	var num = parseInt($(".star_num").html());
+	$(".star_num").html(num+1);
+	$(".star_btn").attr({"disabled": "disabled"});
+	$(".star-icon").removeClass("fa-heart-o");
+	$(".star-icon").addClass("fa-heart");
+
+	$.post("/post/star", "id={{post.data._id}}");
+});
+</script>
+</section>

@@ -1,0 +1,16 @@
+<section class="posts list" ng-controller="blogCtrl as blog">
+		 
+		    <ul ng-repeat="post in blog.items">
+				
+				<a href="/post/{{post.url}}/">
+				<li>{{post.category.name}}&nbsp{{post.title}}
+					<div class="sub">{{post.date}}
+					&nbsp&nbsp
+					<span><i class="fa fa-eye">&nbsp</i>{{post.views}}</span>
+					&nbsp&nbsp
+					<span><i class="fa fa-heart-o">&nbsp</i>{{post.stars}}</span><div>
+				</li>
+				</a>
+				
+			</ul>
+</section>
