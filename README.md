@@ -1,9 +1,3 @@
-## A Blog System of www.heilqt.com
-
-Support dashboard, implements posts, category and links. Write blogs by Markdown
-Node.js + Mongodb(Mongoose), use ``Promise`` to operate Model
+## 开发我自己的博客站点 by node.js mongodb  express
 
 
-Website: http://www.heilqt.com:3000
-
-* fork from :[ele828](https://github.com/ele828)
